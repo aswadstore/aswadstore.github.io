@@ -28,6 +28,7 @@
             width: 100%;
             background: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 1rem 0;
             transition: all 0.3s ease;
@@ -81,6 +82,9 @@
             font-weight: 600;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .whatsapp-btn:hover {
@@ -95,7 +99,8 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23000" width="1200" height="800"/><path fill="none" stroke="%231111" stroke-width="1" opacity="0.1" d="M0 0L1200 800M1200 0L0 800"/></svg>');
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        linear-gradient(45deg, #111 0%, #222 50%, #111 100%);
             position: relative;
         }
 
@@ -109,6 +114,390 @@
         }
 
         .slogan {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 100px 2rem 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 4rem;
+            background: linear-gradient(45deg, #ffffff, #cccccc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .product-card:hover::before {
+            left: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .product-image {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, #333, #555);
+            border-radius: 15px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #666;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #888;
+            font-size: 1.2rem;
+            margin-right: 1rem;
+        }
+
+        .new-price {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .feature:hover {
+            background: rgba(255, 255, 255, 0.06);
+            transform: translateY(-5px);
+        }
+
+        .feature i {
+            font-size: 3rem;
+            color: #cccccc;
+            margin-bottom: 1rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: rgba(0, 0, 0, 0.8);
+            margin: 4rem 2rem;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            padding: 3rem 2rem 1rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: #ffffff;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .social-links a:hover {
+            color: #25D366;
+            transform: translateY(-3px);
+            background: rgba(37, 211, 102, 0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .slogan {
+                font-size: 1.2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Scroll animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">aswad <span>| أسود</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#products">المنتجات</a></li>
+                <li><a href="#features">المميزات</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
+            </ul>
+            <a href="https://wa.me/20121060" class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> اطلب الآن
+            </a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="fade-in">aswad | أسود</h1>
+            <p class="slogan fade-in">أسود لأن البساطة أناقة</p>
+            <a href="https://wa.me/20121060" class="whatsapp-btn" style="font-size: 1.2rem; padding: 1rem 2rem;">
+                <i class="fab fa-whatsapp"></i> اطلب عبر واتساب
+            </a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <h2 class="section-title fade-in">منتجاتنا الأسود الأنيق</h2>
+        <div class="products-grid">
+            <div class="product-card fade-in">
+                <div class="product-image">
+                    <i class="fas fa-hoodie"></i>
+                </div>
+                <h3 class="product-title">هودي أوفر سايز</h3>
+                <div class="price">
+                    <span class="old-price">800ج</span>
+                    <span class="new-price">600ج</span>
+                </div>
+                <p style="color: #ccc; margin-top: 1rem;">طباعة بسيطة أنيقة - قماش فاخر مريح</p>
+            </div>
+
+            <div class="product-card fade-in">
+                <div class="product-image">
+                    <i class="fas fa-tshirt"></i>
+                </div>
+                <h3 class="product-title">سويت بانتس</h3>
+                <div class="price">
+                    <span class="old-price">750ج</span>
+                    <span class="new-price">600ج</span>
+                </div>
+                <p style="color: #ccc; margin-top: 1rem;">تصميم أوفر سايز مريح - تطريز بسيط</p>
+            </div>
+
+            <div class="product-card fade-in">
+                <div class="product-image">
+                    <i class="fas fa-baseball-ball"></i>
+                </div>
+                <h3 class="product-title">كاب أسود</h3>
+                <div class="price">
+                    <span class="old-price">350ج</span>
+                    <span class="new-price">250ج</span>
+                </div>
+                <p style="color: #ccc; margin-top: 1rem;">شعار مطرز بسيط - خامة عالية الجودة</p>
+            </div>
+        </div>
+
+        <div class="features" id="features">
+            <div class="feature fade-in">
+                <i class="fas fa-palette"></i>
+                <h4>لون أسود فقط</h4>
+                <p>كل منتجاتنا باللون الأسود الأنيق</p>
+            </div>
+            <div class="feature fade-in">
+                <i class="fas fa-users"></i>
+                <h4>أسعار جملة</h4>
+                <p>أسعار خاصة للجملة - تواصل معنا</p>
+            </div>
+            <div class="feature fade-in">
+                <i class="fas fa-shipping-fast"></i>
+                <h4>توصيل سريع</h4>
+                <p>خدمة توصيل موثوقة لكل مكان</p>
+            </div>
+            <div class="feature fade-in">
+                <i class="fas fa-award"></i>
+                <h4>جودة مضمونة</h4>
+                <p>منتجات فاخرة تدوم معاك</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="cta fade-in">
+        <h2>جاهز للطلب؟</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">كل طلباتك عبر واتساب</p>
+        <a href="https://wa.me/20121060?text=مرحبا،%20عايز%20أطلب%20من%20aswad%20أسود" class="whatsapp-btn" style="font-size: 1.5rem; padding: 1.2rem 3rem;">
+            <i class="fab fa-whatsapp"></i> تواصل معانا الآن 0121060
+        </a>
+        <p style="margin-top: 2rem; opacity: 0.7;">تابعنا على صفحتنا: <a href="https://linktr.ee/MohamedWaseem8" target="_blank" style="color: #25D366;">linktr.ee/MohamedWaseem8</a></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="https://linktr.ee/MohamedWaseem8" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/20121060" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://linktr.ee/MohamedWaseem8" target="_blank"><i class="fas fa-link"></i></a>
+        </div>
+        <p>&copy; 2024 aswad | أسود - أسود لأن البساطة أناقة</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.98)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+            }
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = '0.2s';
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Add animation class dynamically
+        document.querySelectorAll('.fade-in').forEach((el, index) => {
+            el.style.animationDelay = `${index * 0.1}s`;
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>        .slogan {
             font-size: 1.5rem;
             margin-bottom: 2rem;
             opacity: 0.9;
