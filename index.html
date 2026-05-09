@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>aswad | أسود - ملابس شبابي أوفر سايز</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>ASWAD - الأناقة في البساطة</title>
     <style>
         * {
             margin: 0;
@@ -13,117 +11,141 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Cairo', sans-serif;
-            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #0d0d0d 100%);
-            color: #ffffff;
-            overflow-x: hidden;
-            line-height: 1.6;
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --gray: #1a1a1a;
+            --gray-light: #2a2a2a;
+            --gold: #d4af37;
+            --gold-dark: #b8941f;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
         }
 
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(-45deg, var(--black), var(--gray), var(--black));
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            color: var(--white);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .glow {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
             transition: all 0.3s ease;
         }
 
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
+        .glow:hover {
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            backdrop-filter: blur(20px);
+            background: var(--glass-bg);
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
         }
 
         .logo {
             font-size: 2rem;
-            font-weight: 700;
-            background: linear-gradient(45deg, #ffffff, #cccccc);
+            font-weight: bold;
+            background: linear-gradient(45deg, var(--white), var(--gold));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .logo span {
-            color: #ffffff;
+            font-size: 1.2rem;
+            opacity: 0.8;
         }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 400;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #cccccc;
-        }
-
-        .whatsapp-btn {
-            background: linear-gradient(45deg, #25D366, #128C7E);
-            color: white;
+        .cart-btn {
+            position: relative;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
             padding: 0.8rem 1.5rem;
             border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
+            cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-            display: inline-flex;
+            backdrop-filter: blur(10px);
+        }
+
+        .cart-btn:hover {
+            background: var(--glass-border);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--gold);
+            color: var(--black);
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
             align-items: center;
-            gap: 0.5rem;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
         }
 
-        .whatsapp-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-        }
-
-        /* Hero Section */
+        /* Hero */
         .hero {
             height: 100vh;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
+            align-items: center;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        linear-gradient(45deg, #111 0%, #222 50%, #111 100%);
-            position: relative;
-        }
-
-        .hero-content h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #ffffff, #cccccc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            padding: 0 5%;
+            margin-top: 80px;
         }
 
         .slogan {
-            font-size: 1.5rem;
+            font-size: 2.5rem;
             margin-bottom: 2rem;
             opacity: 0.9;
-            font-weight: 300;
+            animation: fadeInUp 1s ease;
         }
 
-        /* Products Section */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 0.9;
+                transform: translateY(0);
+            }
+        }
+
+        /* Products */
         .products {
-            padding: 100px 2rem 50px;
-            max-width: 1200px;
+            padding: 5rem 5%;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
@@ -131,7 +153,7 @@
             text-align: center;
             font-size: 3rem;
             margin-bottom: 4rem;
-            background: linear-gradient(45deg, #ffffff, #cccccc);
+            background: linear-gradient(45deg, var(--white), var(--gold));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -139,720 +161,902 @@
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-bottom: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
         .product-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
             border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.4s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
             overflow: hidden;
-        }
-
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            transition: left 0.5s;
-        }
-
-        .product-card:hover::before {
-            left: 100%;
+            transition: all 0.4s ease;
+            cursor: pointer;
         }
 
         .product-card:hover {
             transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
         .product-image {
-            width: 200px;
-            height: 200px;
-            background: linear-gradient(45deg, #333, #555);
-            border-radius: 15px;
-            margin: 0 auto 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: #666;
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
         }
 
-        .product-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #ffffff;
+        .product-card:hover .product-image {
+            transform: scale(1.05);
         }
 
-        .price {
-            font-size: 2rem;
-            font-weight: 700;
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-name {
+            font-size: 1.3rem;
             margin-bottom: 0.5rem;
         }
 
-        .old-price {
-            text-decoration: line-through;
-            color: #888;
-            font-size: 1.2rem;
-            margin-right: 1rem;
-        }
-
-        .new-price {
-            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Features */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .feature {
-            text-align: center;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .feature:hover {
-            background: rgba(255, 255, 255, 0.06);
-            transform: translateY(-5px);
-        }
-
-        .feature i {
-            font-size: 3rem;
-            color: #cccccc;
-            margin-bottom: 1rem;
-        }
-
-        /* CTA Section */
-        .cta {
-            text-align: center;
-            padding: 4rem 2rem;
-            background: rgba(0, 0, 0, 0.8);
-            margin: 4rem 2rem;
-            border-radius: 25px;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Footer */
-        footer {
-            background: #000;
-            padding: 3rem 2rem 1rem;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .social-links a {
-            color: #ffffff;
+        .product-price {
             font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(45deg, var(--gold), var(--gold-dark));
+            color: var(--black);
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
             transition: all 0.3s ease;
-            width: 50px;
-            height: 50px;
+        }
+
+        .add-to-cart:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Cart Modal */
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 400px;
+            height: 100vh;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-left: 1px solid var(--glass-border);
+            z-index: 2000;
+            transition: right 0.4s ease;
+            overflow-y: auto;
+        }
+
+        .cart-modal.active {
+            right: 0;
+        }
+
+        .cart-header {
+            padding: 2rem;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .cart-close {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: var(--white);
+            cursor: pointer;
+        }
+
+        .cart-items {
+            padding: 1rem 2rem;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .cart-item img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .quantity-controls {
             display: flex;
             align-items: center;
-            justify-content: center;
+            gap: 0.5rem;
+            margin: 0.5rem 0;
+        }
+
+        .qty-btn {
+            width: 32px;
+            height: 32px;
+            border: 1px solid var(--glass-border);
+            background: var(--glass-bg);
+            color: var(--white);
             border-radius: 50%;
-            background: rgba(255,255,255,0.1);
-        }
-
-        .social-links a:hover {
-            color: #25D366;
-            transform: translateY(-3px);
-            background: rgba(37, 211, 102, 0.2);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .slogan {
-                font-size: 1.2rem;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            nav {
-                flex-direction: column;
-                gap: 1rem;
-            }
-        }
-
-        /* Scroll animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
-        }
-    </style>
-</head>
-<body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <div class="logo">aswad <span>| أسود</span></div>
-            <ul class="nav-links">
-                <li><a href="#home">الرئيسية</a></li>
-                <li><a href="#products">المنتجات</a></li>
-                <li><a href="#features">المميزات</a></li>
-                <li><a href="#contact">تواصل معنا</a></li>
-            </ul>
-            <a href="https://wa.me/20121060" class="whatsapp-btn" target="_blank">
-                <i class="fab fa-whatsapp"></i> اطلب الآن
-            </a>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1 class="fade-in">aswad | أسود</h1>
-            <p class="slogan fade-in">أسود لأن البساطة أناقة</p>
-            <a href="https://wa.me/20121060" class="whatsapp-btn" style="font-size: 1.2rem; padding: 1rem 2rem;">
-                <i class="fab fa-whatsapp"></i> اطلب عبر واتساب
-            </a>
-        </div>
-    </section>
-
-    <!-- Products Section -->
-    <section id="products" class="products">
-        <h2 class="section-title fade-in">منتجاتنا الأسود الأنيق</h2>
-        <div class="products-grid">
-            <div class="product-card fade-in">
-                <div class="product-image">
-                    <i class="fas fa-hoodie"></i>
-                </div>
-                <h3 class="product-title">هودي أوفر سايز</h3>
-                <div class="price">
-                    <span class="old-price">800ج</span>
-                    <span class="new-price">600ج</span>
-                </div>
-                <p style="color: #ccc; margin-top: 1rem;">طباعة بسيطة أنيقة - قماش فاخر مريح</p>
-            </div>
-
-            <div class="product-card fade-in">
-                <div class="product-image">
-                    <i class="fas fa-tshirt"></i>
-                </div>
-                <h3 class="product-title">سويت بانتس</h3>
-                <div class="price">
-                    <span class="old-price">750ج</span>
-                    <span class="new-price">600ج</span>
-                </div>
-                <p style="color: #ccc; margin-top: 1rem;">تصميم أوفر سايز مريح - تطريز بسيط</p>
-            </div>
-
-            <div class="product-card fade-in">
-                <div class="product-image">
-                    <i class="fas fa-baseball-ball"></i>
-                </div>
-                <h3 class="product-title">كاب أسود</h3>
-                <div class="price">
-                    <span class="old-price">350ج</span>
-                    <span class="new-price">250ج</span>
-                </div>
-                <p style="color: #ccc; margin-top: 1rem;">شعار مطرز بسيط - خامة عالية الجودة</p>
-            </div>
-        </div>
-
-        <div class="features" id="features">
-            <div class="feature fade-in">
-                <i class="fas fa-palette"></i>
-                <h4>لون أسود فقط</h4>
-                <p>كل منتجاتنا باللون الأسود الأنيق</p>
-            </div>
-            <div class="feature fade-in">
-                <i class="fas fa-users"></i>
-                <h4>أسعار جملة</h4>
-                <p>أسعار خاصة للجملة - تواصل معنا</p>
-            </div>
-            <div class="feature fade-in">
-                <i class="fas fa-shipping-fast"></i>
-                <h4>توصيل سريع</h4>
-                <p>خدمة توصيل موثوقة لكل مكان</p>
-            </div>
-            <div class="feature fade-in">
-                <i class="fas fa-award"></i>
-                <h4>جودة مضمونة</h4>
-                <p>منتجات فاخرة تدوم معاك</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section id="contact" class="cta fade-in">
-        <h2>جاهز للطلب؟</h2>
-        <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">كل طلباتك عبر واتساب</p>
-        <a href="https://wa.me/20121060?text=مرحبا،%20عايز%20أطلب%20من%20aswad%20أسود" class="whatsapp-btn" style="font-size: 1.5rem; padding: 1.2rem 3rem;">
-            <i class="fab fa-whatsapp"></i> تواصل معانا الآن 0121060
-        </a>
-        <p style="margin-top: 2rem; opacity: 0.7;">تابعنا على صفحتنا: <a href="https://linktr.ee/MohamedWaseem8" target="_blank" style="color: #25D366;">linktr.ee/MohamedWaseem8</a></p>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="social-links">
-            <a href="https://linktr.ee/MohamedWaseem8" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://wa.me/20121060" target="_blank"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://linktr.ee/MohamedWaseem8" target="_blank"><i class="fas fa-link"></i></a>
-        </div>
-        <p>&copy; 2024 aswad | أسود - أسود لأن البساطة أناقة</p>
-    </footer>
-
-    <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(0, 0, 0, 0.98)';
-            } else {
-                header.style.background = 'rgba(0, 0, 0, 0.95)';
-            }
-        });
-
-        // Fade in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationDelay = '0.2s';
-                    entry.target.classList.add('animate-fade-in');
-                }
-            });
-        }, observerOptions);
-
-        // Add animation class dynamically
-        document.querySelectorAll('.fade-in').forEach((el, index) => {
-            el.style.animationDelay = `${index * 0.1}s`;
-            observer.observe(el);
-        });
-    </script>
-</body>
-</html>        .slogan {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            font-weight: 300;
-        }
-
-        /* Products Section */
-        .products {
-            padding: 100px 2rem 50px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 4rem;
-            background: linear-gradient(45deg, #ffffff, #cccccc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-bottom: 4rem;
-        }
-
-        .product-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.4s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            transition: left 0.5s;
-        }
-
-        .product-card:hover::before {
-            left: 100%;
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .product-image {
-            width: 200px;
-            height: 200px;
-            background: linear-gradient(45deg, #333, #555);
-            border-radius: 15px;
-            margin: 0 auto 1.5rem;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
-            color: #666;
         }
 
-        .product-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #ffffff;
+        .cart-total {
+            padding: 2rem;
+            border-top: 1px solid var(--glass-border);
         }
 
-        .price {
-            font-size: 2rem;
-            font-weight: 700;
+        .total-row {
+            display: flex;
+            justify-content: space-between;
             margin-bottom: 0.5rem;
         }
 
-        .old-price {
-            text-decoration: line-through;
-            color: #888;
-            font-size: 1.2rem;
-            margin-right: 1rem;
+        .total-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--gold);
         }
 
-        .new-price {
-            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .checkout-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(45deg, var(--gold), var(--gold-dark));
+            color: var(--black);
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 1rem;
         }
 
-        /* Features */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .feature {
-            text-align: center;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .feature:hover {
-            background: rgba(255, 255, 255, 0.06);
-            transform: translateY(-5px);
-        }
-
-        .feature i {
-            font-size: 3rem;
-            color: #cccccc;
-            margin-bottom: 1rem;
-        }
-
-        /* CTA Section */
-        .cta {
-            text-align: center;
-            padding: 4rem 2rem;
+        /* Checkout Modal */
+        .checkout-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: rgba(0, 0, 0, 0.8);
-            margin: 4rem 2rem;
-            border-radius: 25px;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Footer */
-        footer {
-            background: #000;
-            padding: 3rem 2rem 1rem;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .social-links {
-            display: flex;
+            z-index: 3000;
+            display: none;
+            align-items: center;
             justify-content: center;
-            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .checkout-modal.active {
+            display: flex;
+        }
+
+        .checkout-container {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 3rem;
+            width: 100%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 1rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            color: var(--white);
+            font-size: 1rem;
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .coupon-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .coupon-input {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .coupon-input input {
+            flex: 1;
+        }
+
+        .apply-coupon {
+            padding: 0.8rem 1.5rem;
+            background: var(--gold);
+            color: var(--black);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .shipping-info {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            border-right: 3px solid var(--gold);
+        }
+
+        /* Admin Panel */
+        .admin-panel {
+            position: fixed;
+            top: 80px;
+            left: -350px;
+            width: 350px;
+            height: calc(100vh - 80px);
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-right: 1px solid var(--glass-border);
+            z-index: 2500;
+            transition: left 0.4s ease;
+            padding: 2rem;
+        }
+
+        .admin-panel.active {
+            left: 0;
+        }
+
+        .admin-toggle {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            z-index: 2600;
+            backdrop-filter: blur(10px);
+        }
+
+        .admin-section {
             margin-bottom: 2rem;
         }
 
-        .social-links a {
-            color: #ffffff;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
+        .admin-section h3 {
+            margin-bottom: 1rem;
+            color: var(--gold);
         }
 
-        .social-links a:hover {
-            color: #25D366;
-            transform: translateY(-3px);
+        .admin-form input {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            color: var(--white);
+        }
+
+        .admin-product-list {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .admin-product {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            margin-bottom: 0.5rem;
+            border-radius: 10px;
+            padding: 1rem;
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            transform: translateX(400px);
+            transition: all 0.4s ease;
+            z-index: 5000;
+            font-weight: 500;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .toast.success {
+            background: rgba(34, 197, 94, 0.9);
+            border-right: 4px solid #22c55e;
+        }
+
+        .toast.error {
+            background: rgba(239, 68, 68, 0.9);
+            border-right: 4px solid #ef4444;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
+            .cart-modal {
+                width: 100%;
             }
 
             .slogan {
-                font-size: 1.2rem;
+                font-size: 2rem;
             }
 
             .products-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .admin-panel {
+                left: -100%;
+                width: 100%;
+            }
+
+            .checkout-container {
+                padding: 2rem 1.5rem;
+                margin: 1rem;
             }
         }
 
-        /* Scroll animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
 
-        .fade-in {
-            animation: fadeInUp 0.8s ease forwards;
+        ::-webkit-scrollbar-track {
+            background: var(--gray);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 4px;
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <nav>
-            <div class="logo">aswad <span>| أسود</span></div>
-            <ul class="nav-links">
-                <li><a href="#home">الرئيسية</a></li>
-                <li><a href="#products">المنتجات</a></li>
-                <li><a href="#features">المميزات</a></li>
-                <li><a href="#contact">تواصل معنا</a></li>
-            </ul>
-            <a href="https://wa.me/20121060" class="whatsapp-btn" target="_blank">
-                <i class="fab fa-whatsapp"></i> اطلب الآن
-            </a>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo glow">ASWAD<span> أسود</span></div>
+            <div class="cart-btn glow" onclick="toggleCart()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zM2 2v2h1.8l3.5 7.6-1.3 2.3c-.1.2-.1.4-.1.6 0 1.1.9 2 2 2h12v-2H8.5l.6-1h9.8c.9 0 1.7-.6 1.9-1.5l2.9-6.2c.1-.3 0-.6-.2-.8l-4-6.3c-.2-.3-.5-.5-.9-.5H5.2L4.3 2H2zm17.8 8H7.2L6 6h14.7l-1.9 4z"/>
+                </svg>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1 class="fade-in">aswad | أسود</h1>
-            <p class="slogan fade-in">أسود لأن البساطة أناقة</p>
-            <a href="https://wa.me/20121060" class="whatsapp-btn" style="font-size: 1.2rem; padding: 1rem 2rem;">
-                <i class="fab fa-whatsapp"></i> اطلب عبر واتساب
-            </a>
+    <!-- Hero -->
+    <section class="hero">
+        <h1 class="slogan">الأناقة في البساطة</h1>
+    </section>
+
+    <!-- Products -->
+    <section class="products">
+        <h2 class="section-title">المنتجات</h2>
+        <div class="products-grid" id="productsGrid">
+            <!-- Products will be loaded here -->
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section id="products" class="products">
-        <h2 class="section-title">منتجاتنا الأسود الأنيق</h2>
-        <div class="products-grid">
-            <div class="product-card fade-in">
-                <div class="product-image">
-                    <i class="fas fa-hoodie"></i>
-                </div>
-                <h3 class="product-title">هودي أوفر سايز</h3>
-                <div class="price">
-                    <span class="old-price">800ج</span>
-                    <span class="new-price">600ج</span>
-                </div>
-                <p style="color: #ccc; margin-top: 1rem;">طباعة بسيطة أنيقة - قماش فاخر مريح</p>
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <button class="cart-close" onclick="toggleCart()">×</button>
+            <h2>سلة المشتريات</h2>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-total">
+            <div class="total-row">
+                <span>المجموع الفرعي:</span>
+                <span id="subtotal">0.00 EGP</span>
             </div>
-
-            <div class="product-card fade-in">
-                <div class="product-image">
-                    <i class="fas fa-tshirt"></i>
-                </div>
-                <h3 class="product-title">سويت بانتس</h3>
-                <div class="price">
-                    <span class="old-price">750ج</span>
-                    <span class="new-price">600ج</span>
-                </div>
-                <p style="color: #ccc; margin-top: 1rem;">تصميم أوفر سايز مريح - تطريز بسيط</p>
+            <div class="total-row">
+                <span>الخصم:</span>
+                <span id="discount">0.00 EGP</span>
             </div>
+            <div class="total-row">
+                <span>الشحن:</span>
+                <span id="shipping">0.00 EGP</span>
+            </div>
+            <hr>
+            <div class="total-row">
+                <span class="total-price">الإجمالي:</span>
+                <span class="total-price" id="total">0.00 EGP</span>
+            </div>
+            <button class="checkout-btn" onclick="openCheckout()">إتمام الطلب</button>
+        </div>
+    </div>
 
-            <div class="product-card fade-in">
-                <div class="product-image">
-                    <i class="fas fa-baseball-ball"></i>
+    <!-- Checkout Modal -->
+    <div class="checkout-modal" id="checkoutModal">
+        <div class="checkout-container">
+            <h2>إتمام الطلب</h2>
+            <div class="form-group">
+                <label>الاسم الكامل</label>
+                <input type="text" id="customerName" placeholder="أدخل اسمك الكامل">
+            </div>
+            <div class="form-group">
+                <label>رقم الهاتف</label>
+                <input type="tel" id="phone" placeholder="01xxxxxxxxx">
+            </div>
+            <div class="form-group">
+                <label>العنوان</label>
+                <input type="text" id="address" placeholder="العنوان التفصيلي">
+            </div>
+            <div class="form-group">
+                <label>المحافظة</label>
+                <input type="text" id="governorate" placeholder="أدخل اسم المحافظة" oninput="calculateShipping()">
+            </div>
+            <div class="form-group">
+                <label>المنطقة</label>
+                <input type="text" id="area" placeholder="المنطقة">
+            </div>
+            <div class="coupon-section">
+                <div class="coupon-input">
+                    <input type="text" id="couponCode" placeholder="كود الخصم">
+                    <button class="apply-coupon" onclick="applyCoupon()">تطبيق</button>
                 </div>
-                <h3 class="product-title">كاب أسود</h3>
-                <div class="price">
-                    <span class="old-price">350ج</span>
-                    <span class="new-price">250ج</span>
-                </div>
-                <p style="color: #ccc; margin-top: 1rem;">شعار مطرز بسيط - خامة عالية الجودة</p>
+                <div id="shippingInfo"></div>
+            </div>
+            <button class="checkout-btn" onclick="completeOrder()" style="background: linear-gradient(45deg, var(--gold), var(--gold-dark));">إرسال الطلب عبر واتساب</button>
+            <button onclick="closeCheckout()" style="width: 100%; padding: 1rem; background: transparent; border: 1px solid var(--glass-border); color: var(--white); border-radius: 10px; margin-top: 1rem; cursor: pointer;">إلغاء</button>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div class="admin-panel" id="adminPanel">
+        <h3>لوحة التحكم</h3>
+        
+        <!-- Add Product -->
+        <div class="admin-section">
+            <h4>إضافة منتج جديد</h4>
+            <div class="admin-form">
+                <input type="text" id="adminProductName" placeholder="اسم المنتج">
+                <input type="number" id="adminProductPrice" placeholder="السعر">
+                <input type="url" id="adminProductImage" placeholder="رابط الصورة">
+                <button class="add-to-cart" onclick="addProduct()" style="width: 100%; margin-top: 1rem;">إضافة المنتج</button>
             </div>
         </div>
 
-        <div class="features">
-            <div class="feature fade-in">
-                <i class="fas fa-palette"></i>
-                <h4>لون أسود فقط</h4>
-                <p>كل منتجاتنا باللون الأسود الأنيق</p>
-            </div>
-            <div class="feature fade-in">
-                <i class="fas fa-users"></i>
-                <h4>أسعار جملة</h4>
-                <p>أسعار خاصة للجملة - تواصل معنا</p>
-            </div>
-            <div class="feature fade-in">
-                <i class="fas fa-shipping-fast"></i>
-                <h4>توصيل سريع</h4>
-                <p>خدمة توصيل موثوقة لكل مكان</p>
-            </div>
-            <div class="feature fade-in">
-                <i class="fas fa-award"></i>
-                <h4>جودة مضمونة</h4>
-                <p>منتجات فاخرة تدوم معاك</p>
-            </div>
+        <!-- Manage Products -->
+        <div class="admin-section">
+            <h4>إدارة المنتجات</h4>
+            <div class="admin-product-list" id="adminProductsList"></div>
         </div>
-    </section>
+    </div>
 
-    <!-- CTA Section -->
-    <section id="contact" class="cta">
-        <h2>جاهز للطلب؟</h2>
-        <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">كل طلباتك عبر واتساب</p>
-        <a href="https://wa.me/20121060?text=مرحبا،%20عايز%20أطلب%20من%20aswad%20أسود" class="whatsapp-btn" style="font-size: 1.5rem; padding: 1.2rem 3rem;">
-            <i class="fab fa-whatsapp"></i> تواصل معانا الآن 0121060
-        </a>
-        <p style="margin-top: 2rem; opacity: 0.7;">تابعنا على صفحتنا: <a href="https://linktr.ee/MohamedWaseem8" target="_blank" style="color: #25D366;">linktr.ee/MohamedWaseem8</a></p>
-    </section>
+    <div class="admin-toggle glow" onclick="toggleAdmin()">
+        ⚙️
+    </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="social-links">
-            <a href="https://linktr.ee/MohamedWaseem8" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://wa.me/20121060" target="_blank"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://linktr.ee/MohamedWaseem8" target="_blank"><i class="fas fa-link"></i></a>
-        </div>
-        <p>&copy; 2024 aswad | أسود - أسود لأن البساطة أناقة</p>
-    </footer>
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
 
     <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(0, 0, 0, 0.98)';
-            } else {
-                header.style.background = 'rgba(0, 0, 0, 0.95)';
+        // Data Structures
+        let products = [];
+        let cart = [];
+        let coupons = [
+            {
+                code: 'waseem10',
+                discount: 10,
+                expiry: '2026-12-31',
+                maxUses: 5,
+                used: 0
             }
+        ];
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadFromLocalStorage();
+            renderProducts();
+            updateCartUI();
+            renderAdminProducts();
         });
 
-        // Fade in animation on scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationDelay = '0.2s';
-                    entry.target.classList.add('fade-in');
+        // Products Functions
+        function addProduct() {
+            const name = document.getElementById('adminProductName').value;
+            const price = parseFloat(document.getElementById('adminProductPrice').value);
+            const image = document.getElementById('adminProductImage').value;
+
+            if (!name || !price || !image) {
+                showToast('يرجى ملء جميع الحقول', 'error');
+                return;
+            }
+
+            const product = {
+                id: Date.now(),
+                name,
+                price,
+                image
+            };
+
+            products.push(product);
+            saveToLocalStorage();
+            renderProducts();
+            renderAdminProducts();
+
+            // Clear form
+            document.getElementById('adminProductName').value = '';
+            document.getElementById('adminProductPrice').value = '';
+            document.getElementById('adminProductImage').value = '';
+
+            showToast('تم إضافة المنتج بنجاح', 'success');
+        }
+
+        function deleteProduct(id) {
+            products = products.filter(p => p.id !== id);
+            saveToLocalStorage();
+            renderProducts();
+            renderAdminProducts();
+            showToast('تم حذف المنتج', 'success');
+        }
+
+        function renderProducts() {
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = products.map(product => `
+                <div class="product-card glow">
+                    <img src="${product.image}" alt="${product.name}" class="product-image" 
+                         onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop'">
+                    <div class="product-info">
+                        <h3 class="product-name">${product.name}</h3>
+                        <div class="product-price">${product.price.toFixed(2)} EGP</div>
+                        <button class="add-to-cart" onclick="addToCart(${product.id})">أضف للسلة</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderAdminProducts() {
+            const list = document.getElementById('adminProductsList');
+            list.innerHTML = products.map(product => `
+                <div class="admin-product">
+                    <div>
+                        <strong>${product.name}</strong> - ${product.price} EGP
+                    </div>
+                    <button onclick="deleteProduct(${product.id})" style="background: #ef4444; color: white; border: none; padding: 0.3rem 0.8rem; border-radius: 5px; cursor: pointer;">حذف</button>
+                </div>
+            `).join('');
+        }
+
+        // Cart Functions
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const cartItem = cart.find(item => item.id === productId);
+
+            if (cartItem) {
+                cartItem.quantity += 1;
+            } else {
+                cart.push({
+                    ...product,
+                    quantity: 1
+                });
+            }
+
+            saveToLocalStorage();
+            updateCartUI();
+            showToast(`${product.name} تمت إضافته للسلة`, 'success');
+        }
+
+        function changeQuantity(productId, change) {
+            const cartItem = cart.find(item => item.id === productId);
+            if (cartItem) {
+                cartItem.quantity += change;
+                if (cartItem.quantity <= 0) {
+                    cart = cart.filter(item => item.id !== productId);
                 }
-            });
-        });
+                saveToLocalStorage();
+                updateCartUI();
+            }
+        }
 
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
+        function updateCartUI() {
+            document.getElementById('cartCount').textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+            renderCartItems();
+        }
+
+        function renderCartItems() {
+            const container = document.getElementById('cartItems');
+            if (cart.length === 0) {
+                container.innerHTML = '<p style="text-align: center; opacity: 0.7;">السلة فارغة</p>';
+            } else {
+                container.innerHTML = cart.map(item => `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.name}">
+                        <div class="cart-item-info">
+                            <h4>${item.name}</h4>
+                            <div class="product-price">${item.price.toFixed(2)} EGP</div>
+                            <div class="quantity-controls">
+                                <button class="qty-btn" onclick="changeQuantity(${item.id}, -1)">−</button>
+                                <span>${item.quantity}</span>
+                                <button class="qty-btn" onclick="changeQuantity(${item.id}, 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+            calculateTotals();
+        }
+
+        // Modals
+        function toggleCart() {
+            const modal = document.getElementById('cartModal');
+            modal.classList.toggle('active');
+        }
+
+        function toggleAdmin() {
+            const panel = document.getElementById('adminPanel');
+            panel.classList.toggle('active');
+        }
+
+        function openCheckout() {
+            if (cart.length === 0) {
+                showToast('سلة المشتريات فارغة', 'error');
+                return;
+            }
+            document.getElementById('checkoutModal').classList.add('active');
+            calculateTotals();
+        }
+
+        function closeCheckout() {
+            document.getElementById('checkoutModal').classList.remove('active');
+        }
+
+        // Shipping
+        function calculateShipping() {
+            const governorate = document.getElementById('governorate').value;
+            const shippingInfo = document.getElementById('shippingInfo');
+            
+            let shipping = 0;
+            let shippingText = '';
+
+            if (governorate.includes('القاهرة') || governorate.includes('الجيزة')) {
+                shipping = 80;
+                shippingText = 'الشحن: 80 EGP (القاهرة/الجيزة)';
+            } else if (governorate) {
+                shipping = 150;
+                shippingText = 'الشحن: 150 EGP (محافظات أخرى)';
+            }
+
+            document.shippingAmount = shipping; // Global for totals
+            if (shippingText) {
+                shippingInfo.innerHTML = `<div class="shipping-info">${shippingText}</div>`;
+            } else {
+                shippingInfo.innerHTML = '';
+            }
+            calculateTotals();
+        }
+
+        // Coupon System
+        function applyCoupon() {
+            const code = document.getElementById('couponCode').value.trim().toLowerCase();
+            const coupon = coupons.find(c => c.code === code);
+            const now = new Date();
+
+            if (!coupon) {
+                showToast('كود الخصم غير صحيح', 'error');
+                return;
+            }
+
+            if (new Date(coupon.expiry) < now) {
+                showToast('انتهت صلاحية الكوبون', 'error');
+                return;
+            }
+
+            if (coupon.used >= coupon.maxUses) {
+                showToast('تم استهلاك الكوبون بالكامل', 'error');
+                return;
+            }
+
+            document.currentCoupon = coupon;
+            coupon.used++;
+            saveToLocalStorage();
+            calculateTotals();
+            showToast(`تم تطبيق خصم ${coupon.discount}%`, 'success');
+        }
+
+        // Totals Calculation
+        function calculateTotals() {
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const coupon = document.currentCoupon;
+            let discount = 0;
+            let shipping = document.shippingAmount || 0;
+
+            if (coupon) {
+                discount = subtotal * (coupon.discount / 100);
+            }
+
+            const total = subtotal - discount + shipping;
+
+            document.getElementById('subtotal').textContent = subtotal.toFixed(2) + ' EGP';
+            document.getElementById('discount').textContent = discount.toFixed(2) + ' EGP';
+            document.getElementById('shipping').textContent = shipping.toFixed(2) + ' EGP';
+            document.getElementById('total').textContent = total.toFixed(2) + ' EGP';
+
+            document.orderTotal = total;
+            document.orderSubtotal = subtotal;
+            document.orderDiscount = discount;
+            document.orderShipping = shipping;
+        }
+
+        // WhatsApp Integration
+        function completeOrder() {
+            const name = document.getElementById('customerName').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const governorate = document.getElementById('governorate').value;
+            const area = document.getElementById('area').value;
+
+            if (!name || !phone || !address || !governorate || !area) {
+                showToast('يرجى ملء جميع الحقول', 'error');
+                return;
+            }
+
+            if (cart.length === 0) {
+                showToast('سلة المشتريات فارغة', 'error');
+                return;
+            }
+
+            const message = generateWhatsAppMessage(name, phone, address, governorate, area);
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/201210609451?text=${encodedMessage}`, '_blank');
+            
+            // Clear cart after successful order
+            cart = [];
+            document.currentCoupon = null;
+            saveToLocalStorage();
+            updateCartUI();
+            closeCheckout();
+            showToast('تم إرسال الطلب بنجاح!', 'success');
+        }
+
+        function generateWhatsAppMessage(name, phone, address, governorate, area) {
+            const itemsText = cart.map(item => 
+                `• ${item.name} × ${item.quantity} = ${(item.price * item.quantity).toFixed(2)} EGP`
+            ).join('\n');
+
+            const coupon = document.currentCoupon;
+            const couponText = coupon ? `\nكود الخصم: ${coupon.code} (${coupon.discount}%)` : '';
+
+            return `مرحباً 👋
+
+📋 طلب جديد من:
+👤 ${name}
+📱 ${phone}
+📍 ${address}, ${governorate} - ${area}
+
+🛍️ المنتجات:
+${itemsText}
+
+💰 التفاصيل:
+المجموع الفرعي: ${document.orderSubtotal.toFixed(2)} EGP
+${couponText}
+الشحن: ${document.orderShipping.toFixed(2)} EGP
+━━━━━━━━━━━━
+الإجمالي: ${document.orderTotal.toFixed(2)} EGP
+
+⏰ شكراً لثقتكم بنا!`;
+        }
+
+        // Toast Notifications
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = `toast ${type} show`;
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 4000);
+        }
+
+        // LocalStorage
+        function saveToLocalStorage() {
+            localStorage.setItem('aswad_products', JSON.stringify(products));
+            localStorage.setItem('aswad_cart', JSON.stringify(cart));
+            localStorage.setItem('aswad_coupons', JSON.stringify(coupons));
+        }
+
+        function loadFromLocalStorage() {
+            const savedProducts = localStorage.getItem('aswad_products');
+            const savedCart = localStorage.getItem('aswad_cart');
+            const savedCoupons = localStorage.getItem('aswad_coupons');
+
+            if (savedProducts) products = JSON.parse(savedProducts);
+            if (savedCart) cart = JSON.parse(savedCart);
+            if (savedCoupons) coupons = JSON.parse(savedCoupons);
+
+            // Add default products if empty
+            if (products.length === 0) {
+                products = [
+                    {
+                        id: 1,
+                        name: 'قميص أسود كلاسيك',
+                        price: 850,
+                        image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop'
+                    },
+                    {
+                        id: 2,
+                        name: 'بنطلون رياضي أسود',
+                        price: 650,
+                        image: 'https://images.unsplash.com/photo-1593770281980-8a893f6576f7?w=400&h=500&fit=crop'
+                    },
+                    {
+                        id: 3,
+                        name: 'جاكيت جلد أسود',
+                        price: 2200,
+                        image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=500&fit=crop'
+                    },
+                    {
+                        id: 4,
+                        name: 'تيشرت قطن أسود',
+                        price: 350,
+                        image: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=500&fit=crop'
+                    },
+                    {
+                        id: 5,
+                        name: 'سويتر صوف أسود',
+                        price: 1200,
+                        image: 'https://images.unsplash.com/photo-1520975954732-35dd2225957d?w=400&h=500&fit=crop'
+                    },
+                    {
+                        id: 6,
+                        name: 'وشاح أسود',
+                        price: 280,
+                        image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=500&fit=crop'
+                    }
+                ];
+                saveToLocalStorage();
+            }
+        }
+
+        // Close modals on outside click
+        document.addEventListener('click', function(e) {
+            if (e.target.id === 'checkoutModal') {
+                closeCheckout();
+            }
         });
     </script>
 </body>
-              </html>
+</html>
